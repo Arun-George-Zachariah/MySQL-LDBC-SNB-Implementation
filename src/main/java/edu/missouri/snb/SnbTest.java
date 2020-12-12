@@ -13,16 +13,16 @@ import java.io.IOException;
 import java.util.Map;
 
 public abstract class SnbTest {
-//
-//    protected final BaseDb db;
-//    protected final Workload workload;
-//
-//    protected final int LIMIT = 100;
-//
-//    public SnbTest(BaseDb db, Workload workload) {
-//        this.db = db;
-//        this.workload = workload;
-//    }
+
+    protected final BaseDb db;
+    protected final Workload workload;
+
+    protected final int LIMIT = 100;
+
+    public SnbTest(BaseDb db, Workload workload) {
+        this.db = db;
+        this.workload = workload;
+    }
 //
 //    @Before
 //    public void init() throws DbException {
