@@ -33,7 +33,7 @@ public abstract class QueryStore {
 
     protected String getParameterPostfix() { return ""; }
 
-    protected Map<QueryType, String> queries = new HashMap<>();
+    protected Map<QueryType, String> queries = new HashMap();
 
     protected String loadQueryFromFile(String path, String filename) throws DbException {
         final String filePath = path + File.separator + filename;

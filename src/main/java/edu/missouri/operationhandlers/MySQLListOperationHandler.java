@@ -20,7 +20,7 @@ public abstract class MySQLListOperationHandler<TOperation extends Operation<Lis
     public void executeOperation(TOperation operation, MySQLDbConnectionState state,
                                  ResultReporter resultReporter) throws DbException {
         Connection conn = state.getConnection();
-        List<TOperationResult> results = new ArrayList<>();
+        List<TOperationResult> results = new ArrayList();
         int resultCount = 0;
         results.clear();
 

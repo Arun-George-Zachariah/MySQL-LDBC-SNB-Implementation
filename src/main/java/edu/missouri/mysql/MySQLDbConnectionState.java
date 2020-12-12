@@ -27,7 +27,9 @@ public class MySQLDbConnectionState<TDbQueryStore extends QueryStore> extends Ba
                 //ToDo: Change username and password and make them configurable
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","root");
             }
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
+            throw new DbException(e);
+        } catch (ClassNotFoundException e) {
             throw new DbException(e);
         }
         return connection;
