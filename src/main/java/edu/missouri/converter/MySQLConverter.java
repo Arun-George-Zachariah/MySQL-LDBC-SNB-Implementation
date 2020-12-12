@@ -37,7 +37,7 @@ public class MySQLConverter extends Converter {
     public static Iterable<String> arrayToStringArray(ResultSet r, int column) throws SQLException {
         Array value = r.getArray(column);
         if (value == null) {
-            return new ArrayList<>();
+            return new ArrayList();
         } else {
             String[] strs = (String[]) value.getArray();
             List<String> array = new ArrayList<>();
