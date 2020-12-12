@@ -5,7 +5,7 @@ import com.ldbc.driver.Operation;
 import com.ldbc.driver.OperationHandlerRunnableContext;
 import com.ldbc.driver.ResultReporter;
 import com.ldbc.driver.Workload;
-import com.ldbc.impls.workloads.ldbc.snb.db.BaseDb;
+import edu.missouri.snb.db.BaseDb;
 import org.junit.After;
 import org.junit.Before;
 
