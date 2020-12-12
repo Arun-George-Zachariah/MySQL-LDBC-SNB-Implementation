@@ -3,19 +3,19 @@ package edu.missouri.operationhandlers;
 import com.ldbc.driver.DbException;
 import com.ldbc.driver.Operation;
 import com.ldbc.driver.ResultReporter;
-import com.ldbc.impls.workloads.ldbc.snb.operationhandlers.SingletonOperationHandler;
-import com.ldbc.impls.workloads.ldbc.snb.postgres.PostgresDbConnectionState;
+import edu.missouri.mysql.MySQLDbConnectionState;
+import edu.missouri.snb.operationhandlers.SingletonOperationHandler;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public abstract class PostgresSingletonOperationHandler<TOperation extends Operation<TOperationResult>, TOperationResult>
-        implements SingletonOperationHandler<TOperationResult, TOperation, PostgresDbConnectionState> {
+public abstract class MySQLSingletonOperationHandler<TOperation extends Operation<TOperationResult>, TOperationResult>
+        implements SingletonOperationHandler<TOperationResult, TOperation, MySQLDbConnectionState> {
 
     @Override
-    public void executeOperation(TOperation operation, PostgresDbConnectionState state,
+    public void executeOperation(TOperation operation, MySQLDbConnectionState state,
                                  ResultReporter resultReporter) throws DbException {
         Connection conn = state.getConnection();
         TOperationResult tuple = null;

@@ -4,18 +4,18 @@ import com.ldbc.driver.DbException;
 import com.ldbc.driver.Operation;
 import com.ldbc.driver.ResultReporter;
 import com.ldbc.driver.workloads.ldbc.snb.interactive.LdbcNoResult;
-import com.ldbc.impls.workloads.ldbc.snb.operationhandlers.MultipleUpdateOperationHandler;
-import com.ldbc.impls.workloads.ldbc.snb.postgres.PostgresDbConnectionState;
+import edu.missouri.mysql.MySQLDbConnectionState;
+import edu.missouri.snb.operationhandlers.MultipleUpdateOperationHandler;
 
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.List;
 
-public abstract class PostgresMultipleUpdateOperationHandler<TOperation extends Operation<LdbcNoResult>>
-        implements MultipleUpdateOperationHandler<TOperation, PostgresDbConnectionState> {
+public abstract class MySQLMultipleUpdateOperationHandler<TOperation extends Operation<LdbcNoResult>>
+        implements MultipleUpdateOperationHandler<TOperation, MySQLDbConnectionState> {
 
     @Override
-    public void executeOperation(TOperation operation, PostgresDbConnectionState state,
+    public void executeOperation(TOperation operation, MySQLDbConnectionState state,
                                  ResultReporter resultReporter) throws DbException {
         Connection conn = state.getConnection();
         try {
