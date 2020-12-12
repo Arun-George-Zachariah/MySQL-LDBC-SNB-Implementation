@@ -26,7 +26,7 @@ public class MySQLDbConnectionState<TDbQueryStore extends QueryStore> extends Ba
                 System.out.println("Arun :: Executing connection setup");
                 Class.forName("com.mysql.jdbc.Driver");
                 //ToDo: Change username and password and make them configurable
-                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/sonoo","root","root");
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","clpasswd");
             }
         } catch (SQLException e) {
             e.printStackTrace();
