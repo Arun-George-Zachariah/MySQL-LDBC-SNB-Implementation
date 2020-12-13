@@ -23,7 +23,6 @@ public class MySQLDbConnectionState<TDbQueryStore extends QueryStore> extends Ba
     public Connection getConnection() throws DbException {
         try {
             if (connection == null) {
-                System.out.println("Arun :: Executing connection setup");
                 Class.forName("com.mysql.jdbc.Driver");
                 //ToDo: Change username and password and make them configurable
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","clpasswd");

@@ -665,229 +665,109 @@ public abstract class QueryStore {
         return list;
     }
 
-    // Interactive deletes
-
-    public String getDelete1(LdbcDelete1RemovePerson operation) {
-        return prepare(
-                QueryType.InteractiveDelete1,
-                ImmutableMap.of(
-                        LdbcDelete1RemovePerson.PERSON_ID, getConverter().convertId(operation.personId())
-                )
-        );
-    }
-
-    public String getDelete2(LdbcDelete2RemovePostLike operation) {
-        return prepare(
-                QueryType.InteractiveDelete2,
-                ImmutableMap.of(
-                        LdbcDelete2RemovePostLike.PERSON_ID, getConverter().convertId(operation.personId()),
-                        LdbcDelete2RemovePostLike.POST_ID, getConverter().convertId(operation.postId())
-                )
-        );
-    }
-
-    public String getDelete3(LdbcDelete3RemoveCommentLike operation) {
-        return prepare(
-                QueryType.InteractiveDelete3,
-                ImmutableMap.of(
-                        LdbcDelete3RemoveCommentLike.PERSON_ID, getConverter().convertId(operation.personId()),
-                        LdbcDelete3RemoveCommentLike.COMMENT_ID, getConverter().convertId(operation.personId())
-                )
-        );
-    }
-
-    public String getDelete4(LdbcDelete4RemoveForum operation) {
-        return prepare(
-                QueryType.InteractiveDelete4,
-                ImmutableMap.of(
-                        LdbcDelete4RemoveForum.FORUM_ID, getConverter().convertId(operation.forumId())
-                )
-        );
-    }
-
-    public String getDelete5(LdbcDelete5RemoveForumMembership operation) {
-        return prepare(
-                QueryType.InteractiveDelete5,
-                ImmutableMap.of(
-                        LdbcDelete5RemoveForumMembership.FORUM_ID, getConverter().convertId(operation.forumId()),
-                        LdbcDelete5RemoveForumMembership.PERSON_ID, getConverter().convertId(operation.personId())
-                )
-        );
-    }
-
-    public String getDelete6(LdbcDelete6RemovePost operation) {
-        return prepare(
-                QueryType.InteractiveDelete6,
-                ImmutableMap.of(
-                        LdbcDelete6RemovePost.POST_ID, getConverter().convertId(operation.postId())
-                )
-        );
-    }
-
-    public String getDelete7(LdbcDelete7RemoveComment operation) {
-        return prepare(
-                QueryType.InteractiveDelete7,
-                ImmutableMap.of(
-                        LdbcDelete7RemoveComment.COMMENT_ID, getConverter().convertId(operation.commentId())
-                )
-        );
-    }
-
-    public String getDelete8(LdbcDelete8RemoveFriendship operation) {
-        return prepare(
-                QueryType.InteractiveDelete8,
-                ImmutableMap.of(
-                        LdbcDelete8RemoveFriendship.PERSON1_ID, getConverter().convertId(operation.person1Id()),
-                        LdbcDelete8RemoveFriendship.PERSON2_ID, getConverter().convertId(operation.person2Id())
-                )
-        );
-    }
-
     // BI queries
-
     public String getQuery1(LdbcSnbBiQuery1PostingSummary operation) {
         return prepare(QueryType.BiQuery1, new ImmutableMap.Builder<String, String>()
                 .put(LdbcSnbBiQuery1PostingSummary.DATE, getConverter().convertDateTime(operation.date()))
                 .build());
     }
 
-    public String getQuery2(LdbcSnbBiQuery2TagEvolution operation) {
+    public String getQuery2(LdbcSnbBiQuery3TagEvolution operation) {
         return prepare(QueryType.BiQuery2, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery2TagEvolution.YEAR, getConverter().convertInteger(operation.year()))
-                .put(LdbcSnbBiQuery2TagEvolution.MONTH, getConverter().convertInteger(operation.month()))
+                .put(LdbcSnbBiQuery3TagEvolution.YEAR, getConverter().convertInteger(operation.year()))
+                .put(LdbcSnbBiQuery3TagEvolution.MONTH, getConverter().convertInteger(operation.month()))
                 .build());
     }
 
-    public String getQuery3(LdbcSnbBiQuery3PopularCountryTopics operation) {
+    public String getQuery3(LdbcSnbBiQuery4PopularCountryTopics operation) {
         return prepare(QueryType.BiQuery3, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery3PopularCountryTopics.TAG_CLASS, getConverter().convertString(operation.tagClass()))
-                .put(LdbcSnbBiQuery3PopularCountryTopics.COUNTRY, getConverter().convertString(operation.country()))
+                .put(LdbcSnbBiQuery4PopularCountryTopics.TAG_CLASS, getConverter().convertString(operation.tagClass()))
+                .put(LdbcSnbBiQuery4PopularCountryTopics.COUNTRY, getConverter().convertString(operation.country()))
                 .build());
     }
 
-    public String getQuery4(LdbcSnbBiQuery4TopCountryPosters operation) {
+    public String getQuery4(LdbcSnbBiQuery5TopCountryPosters operation) {
         return prepare(QueryType.BiQuery4, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery4TopCountryPosters.COUNTRY, getConverter().convertString(operation.country()))
+                .put(LdbcSnbBiQuery5TopCountryPosters.COUNTRY, getConverter().convertString(operation.country()))
                 .build());
     }
 
-    public String getQuery5(LdbcSnbBiQuery5ActivePosters operation) {
+    public String getQuery5(LdbcSnbBiQuery6ActivePosters operation) {
         return prepare(QueryType.BiQuery5, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery5ActivePosters.TAG, getConverter().convertString(operation.tag()))
+                .put(LdbcSnbBiQuery6ActivePosters.TAG, getConverter().convertString(operation.tag()))
                 .build());
     }
 
-    public String getQuery6(LdbcSnbBiQuery6AuthoritativeUsers operation) {
+    public String getQuery6(LdbcSnbBiQuery7AuthoritativeUsers operation) {
         return prepare(QueryType.BiQuery6, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery6AuthoritativeUsers.TAG, getConverter().convertString(operation.tag()))
+                .put(LdbcSnbBiQuery7AuthoritativeUsers.TAG, getConverter().convertString(operation.tag()))
                 .build());
     }
 
-    public String getQuery7(LdbcSnbBiQuery7RelatedTopics operation) {
+    public String getQuery7(LdbcSnbBiQuery8RelatedTopics operation) {
         return prepare(QueryType.BiQuery7, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery7RelatedTopics.TAG, getConverter().convertString(operation.tag()))
+                .put(LdbcSnbBiQuery8RelatedTopics.TAG, getConverter().convertString(operation.tag()))
                 .build());
     }
 
-    public String getQuery8(LdbcSnbBiQuery8TagPerson operation) {
+    public String getQuery8(LdbcSnbBiQuery10TagPerson operation) {
         return prepare(QueryType.BiQuery8, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery8TagPerson.TAG, getConverter().convertString(operation.tag()))
-                .put(LdbcSnbBiQuery8TagPerson.DATE, getConverter().convertDateTime(operation.date()))
+                .put(LdbcSnbBiQuery10TagPerson.TAG, getConverter().convertString(operation.tag()))
+                .put(LdbcSnbBiQuery10TagPerson.DATE, getConverter().convertDateTime(operation.date()))
                 .build());
     }
 
-    public String getQuery9(LdbcSnbBiQuery9TopThreadInitiators operation) {
+    public String getQuery9(LdbcSnbBiQuery14TopThreadInitiators operation) {
         return prepare(QueryType.BiQuery9, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery9TopThreadInitiators.START_DATE, getConverter().convertDateTime(operation.startDate()))
-                .put(LdbcSnbBiQuery9TopThreadInitiators.END_DATE, getConverter().convertDateTime(operation.endDate()))
+                .put(LdbcSnbBiQuery14TopThreadInitiators.START_DATE, getConverter().convertDateTime(operation.startDate()))
+                .put(LdbcSnbBiQuery14TopThreadInitiators.END_DATE, getConverter().convertDateTime(operation.endDate()))
                 .build());
     }
 
-    public String getQuery10(LdbcSnbBiQuery10ExpertsInSocialCircle operation) {
+    public String getQuery10(LdbcSnbBiQuery16ExpertsInSocialCircle operation) {
         return prepare(QueryType.BiQuery10, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery10ExpertsInSocialCircle.PERSON_ID, getConverter().convertId(operation.personId()))
-                .put(LdbcSnbBiQuery10ExpertsInSocialCircle.COUNTRY, getConverter().convertString(operation.country()))
-                .put(LdbcSnbBiQuery10ExpertsInSocialCircle.TAG_CLASS, getConverter().convertString(operation.tagClass()))
-                .put(LdbcSnbBiQuery10ExpertsInSocialCircle.MIN_PATH_DISTANCE, getConverter().convertInteger(operation.minPathDistance()))
-                .put(LdbcSnbBiQuery10ExpertsInSocialCircle.MAX_PATH_DISTANCE, getConverter().convertInteger(operation.maxPathDistance()))
+                .put(LdbcSnbBiQuery16ExpertsInSocialCircle.PERSON_ID, getConverter().convertId(operation.personId()))
+                .put(LdbcSnbBiQuery16ExpertsInSocialCircle.COUNTRY, getConverter().convertString(operation.country()))
+                .put(LdbcSnbBiQuery16ExpertsInSocialCircle.TAG_CLASS, getConverter().convertString(operation.tagClass()))
+                .put(LdbcSnbBiQuery16ExpertsInSocialCircle.MIN_PATH_DISTANCE, getConverter().convertInteger(operation.minPathDistance()))
+                .put(LdbcSnbBiQuery16ExpertsInSocialCircle.MAX_PATH_DISTANCE, getConverter().convertInteger(operation.maxPathDistance()))
                 .build());
     }
 
-    public String getQuery11(LdbcSnbBiQuery11FriendshipTriangles operation) {
+    public String getQuery11(LdbcSnbBiQuery17FriendshipTriangles operation) {
         return prepare(QueryType.BiQuery11, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery11FriendshipTriangles.COUNTRY, getConverter().convertString(operation.country()))
+                .put(LdbcSnbBiQuery17FriendshipTriangles.COUNTRY, getConverter().convertString(operation.country()))
                 .build());
     }
 
-    public String getQuery12(LdbcSnbBiQuery12PersonPostCounts operation) {
+    public String getQuery12(LdbcSnbBiQuery18PersonPostCounts operation) {
         return prepare(QueryType.BiQuery12, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery12PersonPostCounts.DATE, getConverter().convertDateTime(operation.date()))
-                .put(LdbcSnbBiQuery12PersonPostCounts.LENGTH_THRESHOLD, getConverter().convertInteger(operation.lengthThreshold()))
-                .put(LdbcSnbBiQuery12PersonPostCounts.LANGUAGES, getConverter().convertStringList(operation.languages()))
+                .put(LdbcSnbBiQuery18PersonPostCounts.DATE, getConverter().convertDateTime(operation.date()))
+                .put(LdbcSnbBiQuery18PersonPostCounts.LENGTH_THRESHOLD, getConverter().convertInteger(operation.lengthThreshold()))
+                .put(LdbcSnbBiQuery18PersonPostCounts.LANGUAGES, getConverter().convertStringList(operation.languages()))
                 .build());
     }
 
-    public String getQuery13(LdbcSnbBiQuery13Zombies operation) {
+    public String getQuery13(LdbcSnbBiQuery21Zombies operation) {
         return prepare(QueryType.BiQuery13, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery13Zombies.COUNTRY, getConverter().convertString(operation.country()))
-                .put(LdbcSnbBiQuery13Zombies.END_DATE, getConverter().convertDateTime(operation.endDate()))
+                .put(LdbcSnbBiQuery21Zombies.COUNTRY, getConverter().convertString(operation.country()))
+                .put(LdbcSnbBiQuery21Zombies.END_DATE, getConverter().convertDateTime(operation.endDate()))
                 .build());
     }
 
-    public String getQuery14(LdbcSnbBiQuery14InternationalDialog operation) {
+    public String getQuery14(LdbcSnbBiQuery22InternationalDialog operation) {
         return prepare(QueryType.BiQuery14, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery14InternationalDialog.COUNTRY1, getConverter().convertString(operation.country1()))
-                .put(LdbcSnbBiQuery14InternationalDialog.COUNTRY2, getConverter().convertString(operation.country2()))
+                .put(LdbcSnbBiQuery22InternationalDialog.COUNTRY1, getConverter().convertString(operation.country1()))
+                .put(LdbcSnbBiQuery22InternationalDialog.COUNTRY2, getConverter().convertString(operation.country2()))
                 .build());
     }
 
-    public String getQuery15(LdbcSnbBiQuery15WeightedPaths operation) {
+    public String getQuery15(LdbcSnbBiQuery25WeightedPaths operation) {
         return prepare(QueryType.BiQuery15, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery15WeightedPaths.PERSON1_ID, getConverter().convertId(operation.person1Id()))
-                .put(LdbcSnbBiQuery15WeightedPaths.PERSON2_ID, getConverter().convertId(operation.person2Id()))
-                .put(LdbcSnbBiQuery15WeightedPaths.START_DATE, getConverter().convertDateTime(operation.startDate()))
-                .put(LdbcSnbBiQuery15WeightedPaths.END_DATE, getConverter().convertDateTime(operation.endDate()))
-                .build());
-    }
-
-    public String getQuery16(LdbcSnbBiQuery16FakeNewsDetection operation) {
-        return prepare(QueryType.BiQuery16, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery16FakeNewsDetection.TAG_A, getConverter().convertString(operation.tagA()))
-                .put(LdbcSnbBiQuery16FakeNewsDetection.DATE_A, getConverter().convertDateTime(operation.dateA()))
-                .put(LdbcSnbBiQuery16FakeNewsDetection.TAG_B, getConverter().convertString(operation.tagB()))
-                .put(LdbcSnbBiQuery16FakeNewsDetection.DATE_B, getConverter().convertDateTime(operation.dateB()))
-                .put(LdbcSnbBiQuery16FakeNewsDetection.MAX_KNOWS_LIMIT, getConverter().convertInteger(operation.maxKnowsLimit()))
-                .put(LdbcSnbBiQuery16FakeNewsDetection.LIMIT, getConverter().convertInteger(operation.limit()))
-                .build());
-    }
-
-    public String getQuery17(LdbcSnbBiQuery17InformationPropagationAnalysis operation) {
-        return prepare(QueryType.BiQuery17, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery17InformationPropagationAnalysis.TAG, getConverter().convertString(operation.tag()))
-                .put(LdbcSnbBiQuery17InformationPropagationAnalysis.DELTA, getConverter().convertInteger(operation.delta()))
-                .put(LdbcSnbBiQuery17InformationPropagationAnalysis.LIMIT, getConverter().convertInteger(operation.limit()))
-                .build());
-    }
-
-    public String getQuery18(LdbcSnbBiQuery18FriendRecommendation operation) {
-        return prepare(QueryType.BiQuery18, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery18FriendRecommendation.PERSON1_ID, getConverter().convertId(operation.person1Id()))
-                .put(LdbcSnbBiQuery18FriendRecommendation.TAG, getConverter().convertString(operation.tag()))
-                .put(LdbcSnbBiQuery18FriendRecommendation.LIMIT, getConverter().convertInteger(operation.limit()))
-                .build());
-    }
-
-    public String getQuery19(LdbcSnbBiQuery19InteractionPathBetweenCities operation) {
-        return prepare(QueryType.BiQuery19, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery19InteractionPathBetweenCities.CITY1_ID, getConverter().convertId(operation.city1Id()))
-                .put(LdbcSnbBiQuery19InteractionPathBetweenCities.CITY2_ID, getConverter().convertId(operation.city2Id()))
-                .build());
-    }
-
-    public String getQuery20(LdbcSnbBiQuery20Recruitment operation) {
-        return prepare(QueryType.BiQuery20, new ImmutableMap.Builder<String, String>()
-                .put(LdbcSnbBiQuery20Recruitment.COMPANY, getConverter().convertString(operation.company()))
-                .put(LdbcSnbBiQuery20Recruitment.PERSON2_ID, getConverter().convertId(operation.person2Id()))
+                .put(LdbcSnbBiQuery25WeightedPaths.PERSON1_ID, getConverter().convertId(operation.person1Id()))
+                .put(LdbcSnbBiQuery25WeightedPaths.PERSON2_ID, getConverter().convertId(operation.person2Id()))
+                .put(LdbcSnbBiQuery25WeightedPaths.START_DATE, getConverter().convertDateTime(operation.startDate()))
+                .put(LdbcSnbBiQuery25WeightedPaths.END_DATE, getConverter().convertDateTime(operation.endDate()))
                 .build());
     }
 
