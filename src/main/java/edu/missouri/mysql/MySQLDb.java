@@ -525,240 +525,240 @@ public abstract class MySQLDb extends BaseDb<MySQLQueryStore> {
 
     }
 
-    public static class BiQuery2 extends MySQLListOperationHandler<LdbcSnbBiQuery2TagEvolution, LdbcSnbBiQuery2TagEvolutionResult> {
+    public static class BiQuery2 extends MySQLListOperationHandler<LdbcSnbBiQuery3TagEvolution, LdbcSnbBiQuery3TagEvolutionResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery2TagEvolution operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery3TagEvolution operation) {
             return state.getQueryStore().getQuery2(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery2TagEvolutionResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery3TagEvolutionResult convertSingleResult(ResultSet result) throws SQLException {
             String tagName = result.getString(1);
             int countMonth1 = result.getInt(2);
             int countMonth2 = result.getInt(3);
             int diff = result.getInt(4);
-            return new LdbcSnbBiQuery2TagEvolutionResult(tagName, countMonth1, countMonth2, diff);
+            return new LdbcSnbBiQuery3TagEvolutionResult(tagName, countMonth1, countMonth2, diff);
         }
 
     }
 
-    public static class BiQuery3 extends MySQLListOperationHandler<LdbcSnbBiQuery3PopularCountryTopics, LdbcSnbBiQuery3PopularCountryTopicsResult> {
+    public static class BiQuery3 extends MySQLListOperationHandler<LdbcSnbBiQuery4PopularCountryTopics, LdbcSnbBiQuery4PopularCountryTopicsResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery3PopularCountryTopics operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery4PopularCountryTopics operation) {
             return state.getQueryStore().getQuery3(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery3PopularCountryTopicsResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery4PopularCountryTopicsResult convertSingleResult(ResultSet result) throws SQLException {
             long forumId = result.getLong(1);
             String forumTitle = result.getString(2);
             long forumCreationDate = MySQLConverter.stringTimestampToEpoch(result, 3);
             long personId = result.getLong(4);
             int postCount = result.getInt(5);
-            return new LdbcSnbBiQuery3PopularCountryTopicsResult(forumId, forumTitle, forumCreationDate, personId, postCount);
+            return new LdbcSnbBiQuery4PopularCountryTopicsResult(forumId, forumTitle, forumCreationDate, personId, postCount);
         }
 
     }
 
-    public static class BiQuery4 extends MySQLListOperationHandler<LdbcSnbBiQuery4TopCountryPosters, LdbcSnbBiQuery4TopCountryPostersResult> {
+    public static class BiQuery4 extends MySQLListOperationHandler<LdbcSnbBiQuery5TopCountryPosters, LdbcSnbBiQuery5TopCountryPostersResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery4TopCountryPosters operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery5TopCountryPosters operation) {
             return state.getQueryStore().getQuery4(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery4TopCountryPostersResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery5TopCountryPostersResult convertSingleResult(ResultSet result) throws SQLException {
             long personId = result.getLong(1);
             String personFirstName = result.getString(2);
             String personLastName = result.getString(3);
             long personCreationDate = MySQLConverter.stringTimestampToEpoch(result, 4);
             int postCount = result.getInt(5);
-            return new LdbcSnbBiQuery4TopCountryPostersResult(personId, personFirstName, personLastName, personCreationDate, postCount);
+            return new LdbcSnbBiQuery5TopCountryPostersResult(personId, personFirstName, personLastName, personCreationDate, postCount);
         }
 
     }
 
-    public static class BiQuery5 extends MySQLListOperationHandler<LdbcSnbBiQuery5ActivePosters, LdbcSnbBiQuery5ActivePostersResult> {
+    public static class BiQuery5 extends MySQLListOperationHandler<LdbcSnbBiQuery6ActivePosters, LdbcSnbBiQuery6ActivePostersResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery5ActivePosters operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery6ActivePosters operation) {
             return state.getQueryStore().getQuery5(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery5ActivePostersResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery6ActivePostersResult convertSingleResult(ResultSet result) throws SQLException {
             long personId = result.getLong(1);
             int replyCount = result.getInt(2);
             int likeCount = result.getInt(3);
             int messageCount = result.getInt(4);
             int score = result.getInt(5);
-            return new LdbcSnbBiQuery5ActivePostersResult(personId, replyCount, likeCount, messageCount, score);
+            return new LdbcSnbBiQuery6ActivePostersResult(personId, replyCount, likeCount, messageCount, score);
         }
 
     }
 
-    public static class BiQuery6 extends MySQLListOperationHandler<LdbcSnbBiQuery6AuthoritativeUsers, LdbcSnbBiQuery6AuthoritativeUsersResult> {
+    public static class BiQuery6 extends MySQLListOperationHandler<LdbcSnbBiQuery7AuthoritativeUsers, LdbcSnbBiQuery7AuthoritativeUsersResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery6AuthoritativeUsers operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery7AuthoritativeUsers operation) {
             return state.getQueryStore().getQuery6(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery6AuthoritativeUsersResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery7AuthoritativeUsersResult convertSingleResult(ResultSet result) throws SQLException {
             long personId = result.getLong(1);
             int authorityScore = result.getInt(2);
-            return new LdbcSnbBiQuery6AuthoritativeUsersResult(personId, authorityScore);
+            return new LdbcSnbBiQuery7AuthoritativeUsersResult(personId, authorityScore);
         }
 
     }
 
-    public static class BiQuery7 extends MySQLListOperationHandler<LdbcSnbBiQuery7RelatedTopics, LdbcSnbBiQuery7RelatedTopicsResult> {
+    public static class BiQuery7 extends MySQLListOperationHandler<LdbcSnbBiQuery8RelatedTopics, LdbcSnbBiQuery8RelatedTopicsResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery7RelatedTopics operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery8RelatedTopics operation) {
             return state.getQueryStore().getQuery7(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery7RelatedTopicsResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery8RelatedTopicsResult convertSingleResult(ResultSet result) throws SQLException {
             String relatedTagName = result.getString(1);
             int count = result.getInt(2);
-            return new LdbcSnbBiQuery7RelatedTopicsResult(relatedTagName, count);
+            return new LdbcSnbBiQuery8RelatedTopicsResult(relatedTagName, count);
         }
 
     }
 
-    public static class BiQuery8 extends MySQLListOperationHandler<LdbcSnbBiQuery8TagPerson, LdbcSnbBiQuery8TagPersonResult> {
+    public static class BiQuery8 extends MySQLListOperationHandler<LdbcSnbBiQuery10TagPerson, LdbcSnbBiQuery10TagPersonResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery8TagPerson operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery10TagPerson operation) {
             return state.getQueryStore().getQuery8(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery8TagPersonResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery10TagPersonResult convertSingleResult(ResultSet result) throws SQLException {
             long personId = result.getLong(1);
             int score = result.getInt(2);
             int friendsScore = result.getInt(3);
-            return new LdbcSnbBiQuery8TagPersonResult(personId, score, friendsScore);
+            return new LdbcSnbBiQuery10TagPersonResult(personId, score, friendsScore);
         }
 
     }
 
-    public static class BiQuery9 extends MySQLListOperationHandler<LdbcSnbBiQuery9TopThreadInitiators, LdbcSnbBiQuery9TopThreadInitiatorsResult> {
+    public static class BiQuery9 extends MySQLListOperationHandler<LdbcSnbBiQuery14TopThreadInitiators, LdbcSnbBiQuery14TopThreadInitiatorsResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery9TopThreadInitiators operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery14TopThreadInitiators operation) {
             return state.getQueryStore().getQuery9(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery9TopThreadInitiatorsResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery14TopThreadInitiatorsResult convertSingleResult(ResultSet result) throws SQLException {
             long personId = result.getLong(1);
             String personFirstName = result.getString(2);
             String personLastName = result.getString(3);
             int threadCount = result.getInt(4);
             int messageCount = result.getInt(5);
-            return new LdbcSnbBiQuery9TopThreadInitiatorsResult(personId, personFirstName, personLastName, threadCount, messageCount);
+            return new LdbcSnbBiQuery14TopThreadInitiatorsResult(personId, personFirstName, personLastName, threadCount, messageCount);
         }
     }
 
-    public static class BiQuery10 extends MySQLListOperationHandler<LdbcSnbBiQuery10ExpertsInSocialCircle, LdbcSnbBiQuery10ExpertsInSocialCircleResult> {
+    public static class BiQuery10 extends MySQLListOperationHandler<LdbcSnbBiQuery16ExpertsInSocialCircle, LdbcSnbBiQuery16ExpertsInSocialCircleResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery10ExpertsInSocialCircle operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery16ExpertsInSocialCircle operation) {
             return state.getQueryStore().getQuery10(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery10ExpertsInSocialCircleResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery16ExpertsInSocialCircleResult convertSingleResult(ResultSet result) throws SQLException {
             long personId = result.getLong(1);
             String tagName = result.getString(2);
             int messageCount = result.getInt(3);
-            return new LdbcSnbBiQuery10ExpertsInSocialCircleResult(personId, tagName, messageCount);
+            return new LdbcSnbBiQuery16ExpertsInSocialCircleResult(personId, tagName, messageCount);
         }
     }
 
-    public static class BiQuery11 extends MySQLSingletonOperationHandler<LdbcSnbBiQuery11FriendshipTriangles, LdbcSnbBiQuery11FriendshipTrianglesResult> {
+    public static class BiQuery11 extends MySQLSingletonOperationHandler<LdbcSnbBiQuery17FriendshipTriangles, LdbcSnbBiQuery17FriendshipTrianglesResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery11FriendshipTriangles operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery17FriendshipTriangles operation) {
             return state.getQueryStore().getQuery11(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery11FriendshipTrianglesResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery17FriendshipTrianglesResult convertSingleResult(ResultSet result) throws SQLException {
             int count = result.getInt(1);
-            return new LdbcSnbBiQuery11FriendshipTrianglesResult(count);
+            return new LdbcSnbBiQuery17FriendshipTrianglesResult(count);
         }
     }
 
-    public static class BiQuery12 extends MySQLListOperationHandler<LdbcSnbBiQuery12PersonPostCounts, LdbcSnbBiQuery12PersonPostCountsResult> {
+    public static class BiQuery12 extends MySQLListOperationHandler<LdbcSnbBiQuery18PersonPostCounts, LdbcSnbBiQuery18PersonPostCountsResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery12PersonPostCounts operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery18PersonPostCounts operation) {
             return state.getQueryStore().getQuery12(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery12PersonPostCountsResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery18PersonPostCountsResult convertSingleResult(ResultSet result) throws SQLException {
             int messageCount = result.getInt(1);
             int personCount = result.getInt(2);
-            return new LdbcSnbBiQuery12PersonPostCountsResult(messageCount, personCount);
+            return new LdbcSnbBiQuery18PersonPostCountsResult(messageCount, personCount);
         }
     }
 
-    public static class BiQuery13 extends MySQLListOperationHandler<LdbcSnbBiQuery13Zombies, LdbcSnbBiQuery13ZombiesResult> {
+    public static class BiQuery13 extends MySQLListOperationHandler<LdbcSnbBiQuery21Zombies, LdbcSnbBiQuery21ZombiesResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery13Zombies operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery21Zombies operation) {
             return state.getQueryStore().getQuery13(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery13ZombiesResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery21ZombiesResult convertSingleResult(ResultSet result) throws SQLException {
             long zombieId = result.getLong(1);
             int zombieLikeCount = result.getInt(2);
             int totalLikeCount = result.getInt(3);
             int zombieScore = result.getInt(4);
-            return new LdbcSnbBiQuery13ZombiesResult(zombieId, zombieLikeCount, totalLikeCount, zombieScore);
+            return new LdbcSnbBiQuery21ZombiesResult(zombieId, zombieLikeCount, totalLikeCount, zombieScore);
         }
     }
 
-    public static class BiQuery14 extends MySQLListOperationHandler<LdbcSnbBiQuery14InternationalDialog, LdbcSnbBiQuery14InternationalDialogResult> {
+    public static class BiQuery14 extends MySQLListOperationHandler<LdbcSnbBiQuery22InternationalDialog, LdbcSnbBiQuery22InternationalDialogResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery14InternationalDialog operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery22InternationalDialog operation) {
             return state.getQueryStore().getQuery14(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery14InternationalDialogResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery22InternationalDialogResult convertSingleResult(ResultSet result) throws SQLException {
             long person1Id = result.getLong(1);
             long person2Id = result.getLong(2);
             String city1Name = result.getString(3);
             int score = result.getInt(4);
-            return new LdbcSnbBiQuery14InternationalDialogResult(person1Id, person2Id, city1Name, score);
+            return new LdbcSnbBiQuery22InternationalDialogResult(person1Id, person2Id, city1Name, score);
         }
     }
 
-    public static class BiQuery15 extends MySQLListOperationHandler<LdbcSnbBiQuery15WeightedPaths, LdbcSnbBiQuery15WeightedPathsResult> {
+    public static class BiQuery15 extends MySQLListOperationHandler<LdbcSnbBiQuery25WeightedPaths, LdbcSnbBiQuery25WeightedPathsResult> {
 
         @Override
-        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery15WeightedPaths operation) {
+        public String getQueryString(MySQLDbConnectionState state, LdbcSnbBiQuery25WeightedPaths operation) {
             return state.getQueryStore().getQuery15(operation);
         }
 
         @Override
-        public LdbcSnbBiQuery15WeightedPathsResult convertSingleResult(ResultSet result) throws SQLException {
+        public LdbcSnbBiQuery25WeightedPathsResult convertSingleResult(ResultSet result) throws SQLException {
             final Long[] array = (Long[]) result.getArray(1).getArray();
             final List<Long> personIds = Arrays.asList(array);
             double weight = result.getDouble(2);
-            return new LdbcSnbBiQuery15WeightedPathsResult(personIds, weight);
+            return new LdbcSnbBiQuery25WeightedPathsResult(personIds, weight);
         }
     }
 
